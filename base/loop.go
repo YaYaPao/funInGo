@@ -8,7 +8,7 @@ func loopOne() {
 	}
 	// 省略初试语句、判断条件的写法
 	j := 0
-	for ;;j++ {
+	for ; ; j++ {
 		if j > 3 {
 			// 通过 break 跳出循环
 			break
@@ -45,10 +45,20 @@ func loopRange() {
 	}
 }
 
+func traggle() {
+	lines := 6
+	for i := 0; i < lines; i++ {
+		for n := 0; n < i+1; n++ {
+			fmt.Print("*")
+		}
+		fmt.Println("")
+	}
+}
+
 func main() {
 	loopOne()
 	loopTwo()
 	loopThree()
 	loopRange()
+	traggle()
 }
-
