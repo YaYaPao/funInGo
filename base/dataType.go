@@ -19,7 +19,7 @@ func testString() {
 		fmt.Println(a[i])
 	}
 
-	// 解决乱码问题
+	// 解决乱码问题，涉及到中文，则以 rune 格式进行解析
 	r := []rune(a)
 	fmt.Println(r)
 	for i := 0; i < len(r); i++ {
