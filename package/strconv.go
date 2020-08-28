@@ -28,6 +28,21 @@ func parseString() {
 	fmt.Printf("error message is ------ %v\n", e1)
 }
 
+// Format 主要是将其他类型数据转换为字符串类型
+func formatString() {
+	fmt.Println("------ format string ------")
+	// int to string
+	i := 567
+	s1 := strconv.Itoa(i)
+	fmt.Printf("coversions from int to string: type is %T and value is %v\n", s1, s1)
+
+	// bool to string: true or false
+	b := true
+	s2 := strconv.FormatBool(b)
+	fmt.Printf("conversions from bool to string: type is %T and value is %v\n", s2, s2)
+}
+
 func main() {
 	parseString()
+	formatString()
 }
