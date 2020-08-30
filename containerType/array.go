@@ -31,6 +31,14 @@ func twoDimensional(data [][]int) {
 	fmt.Println(data)
 }
 
+func sugarInArray() {
+	a1 := [3]int{1, 2, 3}
+	a2 := &a1
+	// 这里对 a2 进行直接赋值操作，得益于 Go 内实现的语法糖
+	a2[0] = 100
+	fmt.Printf("a1 is %v and a2 is %v\n", a1, a2)
+}
+
 func main() {
 	arrayBase()
 	nums := [][]int{
@@ -39,5 +47,8 @@ func main() {
 	}
 	twoDimensional(nums)
 	// verify the nums has change or not
+	// 数组是引用类型，传递的是该值的指针
 	fmt.Println("after changed nums is", nums)
+	// 测试数组中的语法糖
+	sugarInArray()
 }
