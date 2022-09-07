@@ -7,9 +7,18 @@ package main
 import (
 	"fmt"
 	"greetings"
+	"log"
 )
 
 func main() {
-	message := greetings.Hello("papaya")
+	// 设置 logger 的前缀以及关闭其对时间、源文件和行数的打印
+	log.SetPrefix("greetings:")
+	log.SetFlags(0)
+
+	message, err := greetings.Hello("papaya")
+	// 如果返回错误，则将错误打印在控制台，并且退出程序
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(message)
 }
