@@ -19,6 +19,21 @@ func Hello(name string) (string, error) {
 	return message, nil
 }
 
+// Hellos 用来处理多个输入，返回一个 map 对象
+// 通过 `make` 来创建一个 key/value 均为 string 的 map 对象
+// `range` 会返回 index 和值的拷贝，通过 _ 来忽略 index(因为我们在这里用不到它)
+func Hellos(names []string) (map[string]string, error) {
+	messages := make(map[string]string)
+	for _, name := range names {
+		greeting, err := Hello(name)
+		if err != nil {
+			return nil, err
+		}
+		messages[name] = greeting
+	}
+	return messages, nil
+}
+
 // go 会在程序初始化时自动执行 `init()` 方法
 // 设置 rand 对象的初始值以保证 rand 方法的随机性
 func init() {

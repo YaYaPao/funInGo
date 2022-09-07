@@ -15,7 +15,13 @@ func main() {
 	log.SetPrefix("greetings:")
 	log.SetFlags(0)
 
-	message, err := greetings.Hello("papaya")
+	// call Hello method
+	//message, err := greetings.Hello("papaya")
+
+	// call Hellos method
+	names := []string{"glory", "young", "doggy"}
+	message, err := greetings.Hellos(names)
+
 	// 如果返回错误，则将错误打印在控制台，并且退出程序
 	if err != nil {
 		log.Fatal(err)
