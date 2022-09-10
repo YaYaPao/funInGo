@@ -9,7 +9,7 @@ var a, b int
 // 同时，可以为变量赋默认值，此时变量类型可以省略，go 最自动推断其类型
 var c = 3
 
-// 通过 `const` 声明一个常量
+// Pi 通过 `const` 声明一个常量
 const Pi = 3.14
 
 // `:=`（short variable declarations） 仅支持在函数体内
