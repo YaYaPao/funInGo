@@ -16,6 +16,7 @@ var otherMappings = map[string]People{
 }
 
 // 为 map 赋值，注意需要通过 `make` 方法来初始化 map，如果直接给 mappings 赋值会报错
+// 通过 `range` 来遍历 map
 func setMapping() {
 	if mappings == nil {
 		fmt.Println("m is nil!")
@@ -23,6 +24,13 @@ func setMapping() {
 	mappings = make(map[string]People)
 	mappings["xiaoA"] = People{12, 30}
 	fmt.Println(mappings)
+
+	// 遍历 maps
+	mappings["xiaoB"] = People{6, 17}
+	for k, v := range mappings {
+		fmt.Println("k is", k)
+		fmt.Println("v is", v)
+	}
 }
 
 // 通过第二个返回值为 True 或者 False，判断元素是否在 map 内
@@ -33,9 +41,12 @@ func muateMapping() {
 	delete(otherMappings, "b")
 	vv, okk := otherMappings["b"]
 	fmt.Println(vv, okk)
+	// 清空 map，实际就是利用 `make` 方法重新初始化
+	otherMappings = make(map[string]People)
+	fmt.Println("otherMappings has been cleared", otherMappings)
 }
 
 func main() {
-	//setMapping()
-	muateMapping()
+	setMapping()
+	//muateMapping()
 }
