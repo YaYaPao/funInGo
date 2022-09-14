@@ -62,6 +62,23 @@ func emptyInterface() {
 	fmt.Println(target2, ok2)
 }
 
+// 可以通过 switch 语句对 interface 类型进行循环后取值
+func switchInterface(i interface{}) {
+	switch v := i.(type) {
+	case int:
+		fmt.Printf("Type of %v is %T!", v, v)
+	case string:
+		fmt.Printf("Type of %v is %T!", v, v)
+	default:
+		fmt.Println("Unknown type!")
+	}
+}
+
+// 在 Go 内，最常用的一个 interface 是 fmt 模块定义的 stringer
+func (v *Duck) String() string {
+	return fmt.Sprintf("\nMy name is %v", v.name)
+}
+
 // 与其他语言不同，Go 允许你在函数内判断 nil 并处理，而不是直接抛出 null pointer exception
 func (v *Duck) whisper(data string) {
 	if v == nil {
@@ -82,5 +99,8 @@ func describe(data Talk) {
 func main() {
 	//quickDuckInterface()
 	//testNil()
-	emptyInterface()
+	//emptyInterface()
+	switchInterface("12")
+	v := Duck{"Yellow duck"}
+	fmt.Println(v.String())
 }
