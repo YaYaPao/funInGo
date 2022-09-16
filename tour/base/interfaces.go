@@ -79,6 +79,11 @@ func (v *Duck) String() string {
 	return fmt.Sprintf("\nMy name is %v", v.name)
 }
 
+// 在 Go 内，error 也是一个常用的 interface
+func (v *Duck) Error() string {
+	return fmt.Sprintf("%v caught error!", v.name)
+}
+
 // 与其他语言不同，Go 允许你在函数内判断 nil 并处理，而不是直接抛出 null pointer exception
 func (v *Duck) whisper(data string) {
 	if v == nil {
@@ -103,4 +108,8 @@ func main() {
 	switchInterface("12")
 	v := Duck{"Yellow duck"}
 	fmt.Println(v.String())
+	errorDuck := &Duck{"ErrorDuck"}
+	if errorDuck != nil {
+		fmt.Printf(errorDuck.Error())
+	}
 }
