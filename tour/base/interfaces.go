@@ -101,6 +101,12 @@ func describe(data Talk) {
 	fmt.Printf("value is %v, and type is %T\n", data, data)
 }
 
+// 用 interface 创建一个空对象（类似 javascript `{}`）
+func declareEmpty() {
+	v := map[string]interface{}{}
+	fmt.Printf("\ntypeof v is %T, and value is %v", v, v)
+}
+
 func main() {
 	//quickDuckInterface()
 	//testNil()
@@ -112,4 +118,5 @@ func main() {
 	if errorDuck != nil {
 		fmt.Printf(errorDuck.Error())
 	}
+	declareEmpty()
 }

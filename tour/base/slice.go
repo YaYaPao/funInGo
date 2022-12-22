@@ -44,6 +44,17 @@ func loopSlice() {
 	}
 }
 
+/*
+appendSlice 在 go 内，通过 `append` 合并元素/slice
+*/
+func appendSlice() {
+	var s []string
+	// 添加元素
+	s = append(s, "hello", "world")
+	// 合并 slice，注意在 slice 后添加 ...
+	s = append(s, []string{"tony", "young"}...)
+}
+
 func main() {
 	//sliceArray()
 	//emptySlice()
